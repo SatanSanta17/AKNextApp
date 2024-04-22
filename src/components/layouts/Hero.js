@@ -4,7 +4,7 @@ import Right from '../icons/Right'
 
 function Hero() {
   return (
-    <section className='flex grid sm:grid-cols-7 justify-between'>
+    <section className='flex grid sm:grid-cols-7 justify-between mt-4'>
       <div className='flex flex-col items-left justify-center py-24 px-8 col-span-3'>
         <h1 className='text-4xl font-semibold'>Food that reminds you of <span className='text-primary'>Home</span></h1>
         <p className='my-8 text-gray-500'>Our food is claimed to be the best food tasted by our customers so far, but we believe in trying yourself and then decide</p>
