@@ -1,23 +1,41 @@
-import Image from 'next/image'
-import React from 'react'
-import Right from '../icons/Right'
+import Right from "@/components/icons/Right";
+import Image from "next/image";
 
-function Hero() {
+export default function Hero() {
   return (
-    <section className='flex grid sm:grid-cols-7 justify-between mt-4'>
-      <div className='flex flex-col items-left justify-center py-24 px-8 col-span-3'>
-        <h1 className='text-4xl font-semibold'>Food that reminds you of <span className='text-primary'>Home</span></h1>
-        <p className='my-8 text-gray-500'>Our food is claimed to be the best food tasted by our customers so far, but we believe in trying yourself and then decide</p>
-        <div className='flex gap-4 text-sm'>
-            <button className='flex gap-2 bg-primary text-white items-center px-4 py-2 rounded-full uppercase'>Order Now <Right/></button>
-            <button className='py-2 font-semibold text-gray-600'>Learn more</button>
+    <section className="hero md:mt-4">
+      <div className="py-8 md:py-12">
+        <h1 className="text-4xl font-semibold">
+          Everything
+          <br />
+          is better
+          <br />
+          with a&nbsp;
+          <span className="text-primary">Pizza</span>
+        </h1>
+        <p className="my-6 text-gray-500 text-sm">
+          Pizza is the missing piece that makes every day complete, a simple yet
+          delicious joy in life
+        </p>
+        <div className="flex gap-4 text-sm">
+          <button className="flex justify-center bg-primary uppercase flex items-center gap-2 text-white px-4 py-2 rounded-full">
+            Order now
+            <Right />
+          </button>
+          <button className="flex items-center border-0 gap-2 py-2 text-gray-600 font-semibold">
+            Learn more
+            <Right />
+          </button>
         </div>
       </div>
-      <div className='relative items-right col-span-4'>
-        <Image src={"/pizza.png"} layout='fill' objectFit='contain' alt='food-img'/>
+      <div className="relative hidden md:block">
+        <Image
+          src={"/pizza.png"}
+          layout={"fill"}
+          objectFit={"contain"}
+          alt={"pizza"}
+        />
       </div>
     </section>
-  )
+  );
 }
-
-export default Hero
