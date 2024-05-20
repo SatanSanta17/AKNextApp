@@ -1,9 +1,19 @@
-import Header from "@/components/layouts/Header";
-import Hero from "@/components/layouts/Hero";
-import HomeMenu from "@/components/layouts/HomeMenu";
-import SectionHeaders from "@/components/layouts/SectionHeaders";
+"use client";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import Hero from "@/components/layout/Hero";
+import HomeMenu from "@/components/layout/HomeMenu";
+import SectionHeaders from "@/components/layout/SectionHeaders";
 
 export default function Home() {
+  const session = useSession();
+  const status = session?.status;
+  const router = useRouter();
+
+  // If user is not logged in, redirect to login page
+  if (status === "unauthenticated") {
+    router.push("/login");
+  }
   return (
     <>
       <Hero />

@@ -3,6 +3,8 @@ import {signIn} from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import {useState} from "react";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState('');
@@ -10,6 +12,14 @@ export default function RegisterPage() {
   const [creatingUser, setCreatingUser] = useState(false);
   const [userCreated, setUserCreated] = useState(false);
   const [error, setError] = useState(false);
+  const session = useSession();
+  const status = session?.status;
+  const router = useRouter();
+
+  // If user is not logged in, redirect to login page
+  if (status === "authenticated") {
+    router.push("/");
+  }
   async function handleFormSubmit(ev) {
     ev.preventDefault();
     setCreatingUser(true);
